@@ -91,6 +91,12 @@ fn get_current() -> Option<String> {
                 .unwrap()
                 .to_string()
                 .starts_with("./achievements-enhanced")
+            || entry
+                .path()
+                .to_str()
+                .unwrap()
+                .to_string()
+                .starts_with(".\\achievements-enhanced")
         })
         .max_by_key(|entry| entry.path())
     {
