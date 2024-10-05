@@ -132,7 +132,7 @@ async fn main() {
     };
     println!("Starting achievements enhanced...");
     current = format!("./achievements-enhanced-{}", current);
-    let _ = std::process::Command::new(current + "/achievements-enhanced.exe")
+    let _ = std::process::Command::new(current + "/achievements-enhanced")
         .spawn()
         .expect("Failed to start the program")
         .wait();
