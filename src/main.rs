@@ -132,7 +132,12 @@ async fn main() {
     };
     println!("Starting achievements enhanced...");
     current = format!("./achievements-enhanced-{}", current);
-    let _ = std::process::Command::new(current + "/achievements-enhanced")
+    if cfg!(target_os = "linux") {
+        current = current + "/achievements-enhanced";
+    } else {
+        current = current + "/achievements-enhanced.exe";
+    }
+    let _ = std::process::Command::new(current)
         .spawn()
         .expect("Failed to start the program")
         .wait();
